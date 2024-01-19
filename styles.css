@@ -14,12 +14,12 @@
 
 /* header */
 
-.header {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 67px;
   margin-top: 63px;
+  margin-bottom: 67px;
 }
 
 .nav-logo {
@@ -30,25 +30,49 @@
 .nav-list {
   display: flex;
   list-style-type: none;
-  gap: 2vw;
+  gap: 35.5px;
 }
 
 .nav__link {
   position: relative;
   text-decoration: none;
+  font-size: 18px;
   color: #989898;
   text-shadow: 0px 0px 1px #989898;
+}
+.nav__link_active::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 45%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000;
 }
 
 .nav__link:hover {
   color: #000;
+  transition: 0.5s color ease;
 }
 
 /* banner */
 
 .banner {
   position: relative;
-  background-color: RGBA(255, 225, 189, 0.5);
+  background-color: RGBA(255, 225, 189, 0.7);
+}
+
+.banner::before {
+  position: absolute;
+  content: "";
+  background-image: url(./images/tree-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
 }
 
 .block-with-dash {
@@ -70,14 +94,14 @@
 
 .dash {
   width: 57px;
-  border: 1px solid #000;
+  height: 3px;
+  background-color: #000;
   margin-bottom: 27px;
 }
 
 .block-with-dash__text {
   font-size: 24px;
   text-shadow: 0px 0px 0.5px #000;
-  margin-bottom: 79px;
 }
 
 .block-with-dash__text_center {
@@ -90,21 +114,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
   border-radius: 50px;
-  border-color: transparent;
+  border: none;
   font-size: 18px;
-  color: #ffffff;
 }
 
 .block-with-dash__button {
+  color: #ffffff;
+  background-color: #000;
   margin-bottom: 108px;
+  margin-top: 79px;
 }
 
 .button:hover {
   cursor: pointer;
   background-color: #ffe1bd;
   color: #000;
+  transition: 0.5s all ease;
 }
 
 .banner__slider {
@@ -122,87 +148,73 @@
   border-radius: 50%;
   margin-bottom: 15px;
 }
+
 .slider__item_active {
   background-color: #000;
 }
+
 /*services*/
-.services {
-  padding-top: 4vw;
+
+.services__title {
+  margin-top: 86px;
 }
-h2 {
+
+.title {
   text-align: center;
   font-weight: 100;
-  font-size: 3rem;
+  font-size: 60px;
 }
-.services-item {
+
+.title-bold_slim {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.services-kit {
+  margin-top: 93px;
+}
+
+.services-kit-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: minmax(528px, 1fr);
-  column-gap: 2.5vw;
-  margin-bottom: 4vw;
+  column-gap: 24px;
+  margin-bottom: 95px;
 }
-.services-item:nth-of-type(1) {
-  margin-top: 4vw;
+
+.services-kit-item__img {
+  width: 100%;
+  height: 100%;
 }
-.services-item-image {
-  background-color: #e5e5e5;
-  position: relative;
+
+.services-kit-item__description {
+  margin-left: 70px;
 }
-.services-item-image p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.services-kit-item:nth-of-type(2) .services-kit-item__description {
+  order: -1;
+  margin-right: 70px;
+  margin-left: 0;
 }
-.services-item-description h4,
-.services-item-description h3,
-.services-item-description p,
-.services-btn {
-  margin: 0 1rem 0 4rem;
+
+.services-kit-item__text {
+  font-size: 18px;
+  color: #656565;
+  font-weight: 300;
+  margin-bottom: 48px;
 }
-.services-item-description h4 {
-  font-weight: 400;
-  font-size: 1.4rem;
+
+.services-kit-button {
+  border: 1px solid RGBA(216, 216, 216, 1);
+  background-color: #fff;
 }
-.services-item-description h3 {
-  font-size: 2.35rem;
-}
-.services-item-description h3::after {
-  content: "";
-  display: block;
-  width: 2.5vw;
-  border: 1px solid #000;
-  margin: 1.8rem 0 1.8rem 0;
-}
-.services-item-description p:nth-of-type(1) {
-  margin-bottom: 2.3rem;
-}
-.services-btn {
-  width: 10.7rem;
-  height: 3.2rem;
-  margin-top: 4rem;
-  background-color: #ffe1bd;
-  border-radius: 1.5rem;
-  text-align: center;
-}
-.services-btn a {
-  text-decoration: none;
-  color: #000;
-  line-height: 3.2rem;
-}
-.services-btn:hover {
+
+.services-kit-button:hover {
   border: 1px solid #000;
   background-color: #fff;
 }
-.services-item:nth-of-type(2) .services-item-description {
-  order: -1;
-}
-.services-item:nth-of-type(2) .services-item-description h4,
-.services-item:nth-of-type(2) .services-item-description h3,
-.services-item:nth-of-type(2) .services-item-description p,
-.services-item:nth-of-type(2) .services-btn {
-  margin-left: 0;
-}
+
+/* work */
 
 .work-items {
   max-width: 1057px;
@@ -378,7 +390,7 @@ h2 {
   background-color: #000;
   padding-bottom: 10%;
 }
-.contacts h2 {
+.contacts__title {
   margin-bottom: 7.09%;
   color: #fff;
 }
@@ -420,14 +432,14 @@ h2 {
   color: #000;
 }
 address a[href^="mailto:hello@clemocreative.com"] {
-  background-image: url(openletter_icon-icons.com_73714.png);
+  background-image: url(./images/openletter_icon-icons.com_73714.png);
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
   padding-left: 1.7rem;
   background-position: 0 0;
 }
 address a[href^="tel:+1-670-567-5590"] {
-  background-image: url(telephone_phone_call_ios_icon_218563.png);
+  background-image: url(./images/telephone_phone_call_ios_icon_218563.png);
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
   padding-left: 1.7rem;
@@ -435,7 +447,7 @@ address a[href^="tel:+1-670-567-5590"] {
 }
 address
   a[href^="23 Mulholland Drive, Suite 721. Los Angeles 10010 100 S. Main S"] {
-  background-image: url(location_map_twitter_icon_127126.png);
+  background-image: url(./images/location_map_twitter_icon_127126.png);
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
   padding-left: 1.5rem;
@@ -453,7 +465,7 @@ address
   margin: 5% 0;
 }
 .footer p:nth-of-type(1) {
-  background-image: url(copyright-48_44781.png);
+  background-image: url(./images/copyright-48_44781.png);
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
   padding-left: 1.5rem;
