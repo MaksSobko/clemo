@@ -24,6 +24,7 @@ form.addEventListener("submit", function (event) {
   function newMessage() {
     formSuccess.style.display = "none";
     form.style.display = "block";
+    form.reset();
   }
 
   newMsgBtn.addEventListener("click", newMessage);
